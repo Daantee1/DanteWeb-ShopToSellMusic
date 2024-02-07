@@ -1,0 +1,30 @@
+@for(music of musicList; track music.id){
+<div class="card flex   lg:card-side bg-base-100 shadow-xl mt-5">
+    <figure><iframe width="560" height="315" [src]="getSafeUrl(music.shortLink)" frameborder="0" allowfullscreen></iframe></figure>
+    <div class="card-body">
+      <h2 class="card-title">{{music.name}}</h2>
+      <p title="Bit może być sprzedawany wielokrotnie, nie masz go na wyłączność!">Licencja Basic : {{music.priceB}} zł</p>
+      <p title="Bit może być tylko raz, masz go na wyłączność!">Licencja Exclusive : {{music.priceE}} zł</p>
+      <select class="select select-primary w-full max-w-xs" [(ngModel)]="music.musicLicense" >
+        <option disabled selected>Wybierz licencje</option>
+        <option [ngValue]="{name: 'basic', price: music.priceB}">Licencja Basic {{music.priceB}} zł</option>
+        <option [ngValue]="{name: 'exclusive', price: music.priceE}">Licencja Exclusive {{music.priceE}} zł</option>
+      </select>
+      <div class="card-actions justify-end">
+        <a href="https://www.youtube.com/watch?v={{music.shortLink}}">
+        <button class="btn btn-primary" >Posłuchaj </button>
+    </a>
+    @if(isLogged){
+      <button class="btn btn-success" (click)="addToCart(music)" [disabled]="music.addedToCart" >Dodaj do koszyka</button>
+    }
+    
+      </div>
+    </div>
+  </div>
+ 
+}
+
+
+
+
+

@@ -1,0 +1,12 @@
+<div class="form-control mt-5 mb-5 ">
+    <label class="cursor-pointer label max-sm:flex max-sm:flex-col ">
+      <span class="label-text mr-2 max-sm:mb-1" >Od najnowszych</span>
+      <input (click)="byNewSort()" [(ngModel)]="byNew" type="checkbox"  class="checkbox mr-1 max-sm:mb-2" />
+      <span class="label-text ml-3 mr-1 max-sm:mb-2">Od najstarszych</span>
+      <input (click)="byOldSort()" [(ngModel)]="byOld" type="checkbox"  class="checkbox mr-1 max-sm:mb-2" />
+      <span class="label-text ml-3 mr-1 max-sm:mb-2">Od najtańszych</span>
+      <input (click)="byLowSort()" [(ngModel)]="byLow" type="checkbox"  class="checkbox mr-1 max-sm:mb-2"  />
+      <span class="label-text ml-3 mr-1 max-sm:mb-2">Od najdroższych</span>
+      <input (click)="byHighSort()" [(ngModel)]="byHigh" type="checkbox" class="checkbox mr-1 max-sm:mb-2" />
+    </label>
+  </div>

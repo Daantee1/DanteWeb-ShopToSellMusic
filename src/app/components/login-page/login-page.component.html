@@ -1,0 +1,17 @@
+<form (ngSubmit)="login()">
+<div class="flex flex-col justify-center items-center h-full mt-24  mb-52">
+    
+    
+    <h3 class="flex justify-center mb-6 font-semibold text-xl">Logowanie</h3>
+    
+    <input type="text" name="email" [(ngModel)]="userDetails.email" placeholder="Adres e-mail" class=" input input-bordered input-primary w-full max-w-xs mb-6" />
+    <input type="password" name="password" [(ngModel)]="userDetails.password" placeholder="Hasło" class="input input-bordered input-primary w-full max-w-xs" />
+
+    <button type="submit" class="btn btn-success mt-8 w-fit justify-end">Zaloguj się</button>
+    @if(loginCheckValid){
+    <small  class="absolute mt-20 text-red-800">Nieprawidłowy login lub hasło!</small>
+    }
+    <p class="mt-5">Nie masz konta? <a [routerLink]="'/Register-Page'" class="text-blue-700 cursor-pointer">Zarejestruj się</a></p>
+
+</div>
+</form>

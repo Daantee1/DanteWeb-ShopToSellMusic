@@ -1,0 +1,53 @@
+@if(carts.length > 0){
+
+
+<div class="flex  flex-col justify-center items-center mt-5 ">
+    <div class="text-sm breadcrumbs">
+        <ul>
+          <li><a class="font-semibold">Dane zamówienia</a></li> 
+          <li><a>Płatność</a></li> 
+          <li>Podsumowanie</li>
+        </ul>
+      </div>
+<div class="card lg:card-side w-fit bg-base-100 shadow-xl ">
+    <div class="card-body">
+      <h2 class="card-title flex justify-center mb-2">Koszyk</h2>
+      @for(cart of carts; track cart.id){
+        <div>
+            <p> <a class="font-medium">Produkt:</a> {{cart.name}} </p>
+            <p> <a class="font-medium">Cena:</a> {{cart.license.price}} zł</p>
+            <p> <a class="font-medium">Typ licencji:</a> {{cart.license.name}}</p>
+          </div>
+      }    
+    </div>
+    
+    
+  </div>
+  @if(carts.length > 0){
+
+  
+  <div class="card  bg-base-100 shadow-xl w-fit mt-10">
+    <div class="card-body">
+      <h2 class="card-title justify-center">Dane zamawiającego</h2>
+      <p> <a class="font-medium">Adres e-mail:</a> {{currentUser.email}}</p>
+      <p> <a class="font-medium">Login:</a> {{currentUser.login}}</p>
+      <span class="text-center text-red-600 mt-2">Utwór będzie przesłany na skrzynke pocztową kupującego!</span>
+    </div>
+</div>
+}
+
+  
+  
+</div>
+<div class="flex justify-end items-end flex-col mt-12 mr-10 mb-5">
+    <p >Całkowita kwota: {{calculateTotal()}} zł</p>  
+    <a [routerLink]="'/Payment-Page'"> 
+    <button class="btn btn-success mt-1 ">Przejdź do płatności</button>
+</a> 
+    </div>
+}
+@else {
+    <div >
+        <p class="text-center mt-48 mb-96">Brak produktów w koszyku :(</p>
+      </div>
+    }

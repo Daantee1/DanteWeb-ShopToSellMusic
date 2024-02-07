@@ -1,0 +1,32 @@
+<div class="flex justify-center mt-10">
+<ul class="menu menu-vertical lg:menu-horizontal bg-base-200 rounded-box ">
+    <li ><a [ngClass]="{'bg-slate-700': myProfile}" (click)="showMyProfile()" >Mój profil </a>
+    </li>
+
+    <li><a [ngClass]="{'bg-slate-700': myOrders}" (click)="showMyOrders()">Moje zamówienia</a></li>
+  </ul>
+
+  
+</div>
+@if(myProfile){
+    <div class="flex justify-center mt-10">
+        <div class="card w-fit bg-base-100 shadow-xl">
+            <div class="card-body">
+              <h2 class="card-title flex justify-center mb-2">Dane użytkownika</h2>
+              <p class="font-medium">Nazwa użytkownika: {{currentUser.login}}</p>
+              <p class="font-medium">Adres e-mail: {{currentUser.email}}</p>
+              <p  class="font-medium">Hasło: ***********</p>
+        </div>
+        </div>
+        </div>
+}
+@if(myOrders){
+    <div class="flex justify-center mt-10">
+        <div class="card w-96 bg-base-100 shadow-xl">
+            <div class="card-body">
+              <h2 class="card-title flex justify-center mb-2">Moje zamówienia</h2>
+              
+        </div>
+        </div>
+        </div>
+}
